@@ -266,6 +266,7 @@ select {
   border: 1px solid var(--border);
   font: inherit;
   background: #fff;
+  width: 100%;
 }
 
 input:focus-visible,
