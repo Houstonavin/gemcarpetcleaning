@@ -332,6 +332,25 @@ textarea:focus-visible {
   color: var(--muted);
 }
 
+.about-section .section-header p {
+  max-width: 520px;
+}
+
+.about-text {
+  max-width: 780px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-highlight {
+  font-weight: 700;
+  color: var(--text);
+}
+
 .grid {
   display: grid;
   gap: 24px;
@@ -407,10 +426,17 @@ textarea:focus-visible {
   content: "";
   position: absolute;
   border-radius: 50%;
-  background: transparent;
-  border: 1px solid rgba(245, 179, 1, 0.7);
-  box-shadow: 0 0 12px rgba(245, 179, 1, 0.35);
-  opacity: 0.65;
+  background: radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(245, 179, 1, 0.08) 70%,
+      rgba(245, 179, 1, 0.02) 100%
+    );
+  border: 1px solid rgba(245, 179, 1, 0.45);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.35),
+    0 0 14px rgba(245, 179, 1, 0.25);
+  opacity: 0.55;
   pointer-events: none;
   transform: translateY(20px) scale(0.9);
   animation: bubbleDrift 6s ease-in-out infinite;
@@ -421,6 +447,7 @@ textarea:focus-visible {
   height: 48px;
   right: 16px;
   bottom: 14px;
+  animation-name: bubbleDriftUp;
   animation-delay: 0.6s;
 }
 
@@ -429,37 +456,135 @@ textarea:focus-visible {
   height: 22px;
   right: 64px;
   bottom: 54px;
+  animation-name: bubbleDriftLeft;
   animation-delay: 1.2s;
 }
 
 .booking::before {
-  width: 60px;
-  height: 60px;
+  width: 88px;
+  height: 88px;
   left: 22px;
   bottom: 22px;
-  animation-delay: 0.9s;
+  animation-name: bubblePopA;
+  animation-duration: 2.6s;
+  animation-delay: 0.4s;
+  animation-timing-function: ease-in-out;
 }
 
 .booking::after {
-  width: 26px;
-  height: 26px;
+  width: 48px;
+  height: 48px;
   left: 72px;
   bottom: 70px;
-  animation-delay: 1.5s;
+  animation-name: bubblePopB;
+  animation-duration: 2.2s;
+  animation-delay: 0.9s;
+  animation-timing-function: ease-in-out;
 }
 
-@keyframes bubbleDrift {
+@keyframes bubbleDriftUp {
   0% {
     transform: translateY(10px) scale(0.9);
-    opacity: 0.45;
+    opacity: 0.4;
   }
   50% {
     transform: translateY(-12px) scale(1);
-    opacity: 0.7;
+    opacity: 0.6;
   }
   100% {
     transform: translateY(10px) scale(0.9);
-    opacity: 0.45;
+    opacity: 0.4;
+  }
+}
+
+@keyframes bubbleDriftLeft {
+  0% {
+    transform: translateX(10px) scale(0.9);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateX(-14px) scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(10px) scale(0.9);
+    opacity: 0.35;
+  }
+}
+
+@keyframes bubbleDriftRight {
+  0% {
+    transform: translateX(-10px) scale(0.9);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateX(14px) scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(-10px) scale(0.9);
+    opacity: 0.35;
+  }
+}
+
+@keyframes bubbleDriftDown {
+  0% {
+    transform: translateY(-10px) scale(0.9);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(12px) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+@keyframes bubblePopA {
+  0% {
+    transform: translateY(10px) scale(0.6);
+    opacity: 0.4;
+  }
+  55% {
+    transform: translateY(-10px) scale(1.2);
+    opacity: 0.75;
+  }
+  75% {
+    transform: scale(1.6);
+    opacity: 0.12;
+  }
+  76% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(10px) scale(0.6);
+    opacity: 0.4;
+  }
+}
+
+@keyframes bubblePopB {
+  0% {
+    transform: translateY(-8px) scale(0.55);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(6px) scale(1.2);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0.12;
+  }
+  71% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-8px) scale(0.55);
+    opacity: 0.35;
   }
 }
 
