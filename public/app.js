@@ -42,7 +42,7 @@ if (dateInput) {
   dateInput.min = `${yyyy}-${mm}-${dd}`;
 }
 
-estimateButton?.addEventListener("click", async () => {
+estimateButton?.addEventListener("click", () => {
   const estimateForm = estimateButton.closest(".estimate-form");
   const roomValue =
     estimateForm?.querySelector("#estimateRooms")?.value || "1–2 rooms";
@@ -54,19 +54,8 @@ estimateButton?.addEventListener("click", async () => {
     return;
   }
 
-  try {
-    const response = await fetch("/api/estimate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ rooms: roomValue }),
-    });
-    const data = await response.json();
-    const price = data.startingPrice || estimateMap[roomValue] || 129;
-    estimateResult.textContent = `Estimated starting price: $${price}`;
-  } catch (error) {
-    const price = estimateMap[roomValue] || 129;
-    estimateResult.textContent = `Estimated starting price: $${price}`;
-  }
+  const price = estimateMap[roomValue] || 129;
+  estimateResult.textContent = `Estimated starting price: $${price}`;
 });
 
 bookingForm?.addEventListener("submit", (event) => {
@@ -215,4 +204,22 @@ if (reviewCards.length) {
     window.requestAnimationFrame(setActiveReviewDot);
   });
   window.addEventListener("resize", setActiveReviewDot);
+}
+
+const revealElements = document.querySelectorAll(".reveal-on-scroll");
+if (revealElements.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        } else {
+          entry.target.classList.remove("is-visible");
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  revealElements.forEach((el) => observer.observe(el));
 }
