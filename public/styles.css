@@ -383,13 +383,9 @@ textarea:focus-visible {
   color: var(--text);
   font-weight: 700;
   position: relative;
-  opacity: 0;
-  transform: translateY(14px) scale(0.97);
-}
-
-.about-owner.is-visible {
   animation: ownerBounce 1.8s ease-out both;
 }
+
 
 @keyframes ownerBounce {
   0% {
