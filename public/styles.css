@@ -699,11 +699,44 @@ textarea:focus-visible {
   color: var(--muted);
 }
 
+.certifications-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 20px;
+  align-items: start;
+}
+
 .certifications-details ul {
   margin: 0;
   padding-left: 18px;
   display: grid;
   gap: 8px;
+}
+
+.certifications-image {
+  background: #f8fafc;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+}
+
+.certifications-image img {
+  width: min(100%, 220px);
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certifications-image {
+    order: -1;
+  }
 }
 
 .results-scroll {
