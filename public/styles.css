@@ -1,6 +1,6 @@
 :root {
   color-scheme: light;
-  --bg: #f2e1ff;
+  --bg: linear-gradient(180deg, #EAEBED 0%, #D8E4E8 30%, #C5D9E0 60%, #A3CBD3 100%);
   --surface: #ffffff;
   --surface-glass: rgba(255, 255, 255, 0.7);
   --text: #0f172a;
@@ -25,6 +25,8 @@ body {
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   color: var(--text);
   background: var(--bg);
+  background-attachment: fixed;
+  min-height: 100vh;
   line-height: 1.6;
   position: relative;
 }
