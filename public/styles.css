@@ -1120,6 +1120,40 @@ textarea:focus-visible {
   fill: currentColor;
 }
 
+.footer-trust {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  margin: 0 auto 16px;
+  max-width: 1100px;
+}
+
+.footer-trust-badge {
+  width: 56px;
+  height: auto;
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+.footer-trust-text {
+  flex: 1;
+}
+
+.footer-trust-text strong {
+  display: block;
+  font-size: 1rem;
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
+
+.footer-trust-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(248, 250, 252, 0.8);
+  line-height: 1.5;
+}
+
 .footer-note {
   text-align: center;
   color: rgba(248, 250, 252, 0.7);
@@ -1178,6 +1212,12 @@ textarea:focus-visible {
   .section-muted,
   .booking {
     border-radius: 28px;
+  }
+
+  .footer-trust {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .grid {
