@@ -1234,4 +1234,156 @@ textarea:focus-visible {
   .about-image img {
     width: 220px;
   }
+
+  .blog-page-hero {
+    padding-top: 48px;
+  }
+}
+
+/* Blog */
+.nav-links a.nav-link-active {
+  color: inherit;
+  font-weight: 500;
+}
+
+.blog-page-hero {
+  padding-bottom: 8px;
+}
+
+.blog-page-hero h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.blog-page-lead {
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.blog-post-meta {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.blog-article-header .blog-post-meta {
+  margin-bottom: 6px;
+}
+
+.blog-post-author {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+.blog-page-author {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.blog-post-excerpt {
+  color: var(--muted);
+  flex-grow: 1;
+  margin-bottom: 16px;
+  line-height: 1.65;
+}
+
+.blog-post-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 36px rgba(15, 23, 42, 0.12);
+}
+
+.blog-post-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.blog-read-more {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.blog-read-more::after {
+  content: " →";
+}
+
+.blog-article-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.blog-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 28px;
+}
+
+.blog-back:hover {
+  text-decoration: underline;
+}
+
+.blog-article-header {
+  margin-bottom: 28px;
+}
+
+.blog-article-header h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.blog-article-deck {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.blog-prose {
+  color: var(--text);
+  display: grid;
+  gap: 1em;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.blog-prose h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.35rem;
+  margin-top: 1.25em;
+  margin-bottom: 0.25em;
+  line-height: 1.3;
+}
+
+.blog-prose p {
+  margin: 0;
+}
+
+.blog-article-cta {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
 }
