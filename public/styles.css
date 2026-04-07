@@ -1360,6 +1360,122 @@ textarea:focus-visible {
   line-height: 1.65;
 }
 
+.blog-internal-note {
+  font-size: 0.98rem;
+  color: var(--muted);
+  margin: 0 0 1.1em;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.blog-internal-note a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-internal-note a:hover {
+  color: var(--primary-dark);
+}
+
+.blog-featured-image {
+  margin: 20px 0 28px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.blog-featured-image img {
+  width: 100%;
+  height: auto;
+  max-height: min(420px, 55vh);
+  object-fit: cover;
+  display: block;
+  vertical-align: middle;
+}
+
+.blog-prose a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-prose a:hover {
+  color: var(--primary-dark);
+}
+
+.blog-related {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.blog-related h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+}
+
+.blog-related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.blog-related-list a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.blog-related-list a:hover {
+  text-decoration: underline;
+}
+
+.blog-faq {
+  margin-top: 36px;
+}
+
+.blog-faq > h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.35rem;
+  margin-bottom: 16px;
+}
+
+.blog-faq details {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  background: var(--surface);
+}
+
+.blog-faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.blog-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.blog-faq details[open] summary {
+  margin-bottom: 8px;
+}
+
+.blog-faq p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .blog-prose {
   color: var(--text);
   display: grid;
