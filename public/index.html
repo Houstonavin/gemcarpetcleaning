@@ -73,10 +73,11 @@
             serving Lacey, Washington.
           </p>
           <div class="hero-cta">
+            <a class="btn btn-primary" href="#quick-estimate">Get a Quote</a>
             <a class="btn btn-ghost" href="#services">View Services</a>
           </div>
         </div>
-        <div class="hero-card">
+        <div class="hero-card" id="quick-estimate">
           <div class="hero-card-header">
             <h2>Quick Estimate</h2>
             <p>Transparent pricing, no surprises.</p>
@@ -387,7 +388,7 @@
             </div>
           </details>
         </div>
-        <p class="blog-article-cta"><a class="btn btn-primary" href="#services">Browse all services</a></p>
+        <p class="blog-article-cta"><a class="btn btn-primary" href="tel:+17733296506">Call our experts</a></p>
       </section>
 
       <section id="results" class="section">
@@ -549,30 +550,21 @@
               <span class="field-message">This is a mandatory field.</span>
             </label>
             <label>
-              Service address
-              <input
-                id="bookingAddress"
-                type="text"
-                placeholder="123 Main St, Lacey, WA"
-                required
-                class="required-field"
-                pattern="^[A-Za-z0-9 .,#'-]{5,80}$"
-                title="Use letters, numbers, spaces, and , . # - '"
-              />
-              <span class="field-message">This is a mandatory field.</span>
-            </label>
-            <label>
-              Preferred date
-              <input id="bookingDate" type="date" required class="required-field" />
-              <span class="field-message">This is a mandatory field.</span>
-            </label>
-            <label>
-              Preferred time
-              <select id="bookingTime" required class="required-field">
-                <option value="" selected disabled>Select a time</option>
-                <option>Morning (8–11 AM)</option>
-                <option>Midday (11–2 PM)</option>
-                <option>Afternoon (2–5 PM)</option>
+              Service type
+              <select id="bookingService" required class="required-field">
+                <option value="" selected disabled>Select a service</option>
+                <option>Deep carpet &amp; upholstery cleaning</option>
+                <option>Driveway pressure washing</option>
+                <option>Sidewalk scrubbing &amp; cleaning</option>
+                <option>Kitchen hood &amp; floor degreasing</option>
+                <option>Tile scrubbing &amp; polishing</option>
+                <option>Area rug refreshing</option>
+                <option>Stain &amp; odor removal</option>
+                <option>Commercial cleaning</option>
+                <option>Allergen reduction</option>
+                <option>Protective treatments</option>
+                <option>Fast‑dry technology</option>
+                <option>Move‑out cleaning</option>
               </select>
               <span class="field-message">This is a mandatory field.</span>
             </label>

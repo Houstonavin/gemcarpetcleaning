@@ -69,18 +69,14 @@ bookingForm?.addEventListener("submit", (event) => {
   const name = bookingForm.querySelector("#bookingName")?.value?.trim();
   const email = bookingForm.querySelector("#bookingEmail")?.value?.trim();
   const whatsapp = bookingForm.querySelector("#bookingWhatsapp")?.value?.trim();
-  const address = bookingForm.querySelector("#bookingAddress")?.value?.trim();
-  const date = bookingForm.querySelector("#bookingDate")?.value?.trim();
-  const time = bookingForm.querySelector("#bookingTime")?.value?.trim();
+  const service = bookingForm.querySelector("#bookingService")?.value?.trim();
 
   const messageLines = [
     "New booking request:",
     `Name: ${name || "-"}`,
     `WhatsApp: ${whatsapp || "-"}`,
+    `Service: ${service || "-"}`,
     `Email: ${email || "-"}`,
-    `Address: ${address || "-"}`,
-    `Preferred date: ${date || "-"}`,
-    `Preferred time: ${time || "-"}`,
   ];
 
   const message = encodeURIComponent(messageLines.join("\n"));
