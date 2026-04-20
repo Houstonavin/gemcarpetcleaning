@@ -189,7 +189,7 @@
       <section id="services" class="section">
         <div class="section-header">
           <h2>Carpet cleaning, pressure washing &amp; more in Lacey WA</h2>
-          <p>Driveway pressure washing, sidewalk cleaning services, tile and grout cleaning, area rug cleaning, and kitchen hood degreasing. Tap to see pricing.</p>
+          <p>Driveway pressure washing, sidewalk cleaning services, tile and grout cleaning, area rug cleaning, and kitchen hood degreasing. Tap to see pricing and details.</p>
         </div>
         <div class="grid three">
           <details class="service-card">
@@ -209,6 +209,7 @@
                 <li>Sectional: $145–$195</li>
                 <li>Dining chairs: $15–$25 each</li>
               </ul>
+              <p><a href="#services">View carpet cleaning pricing</a></p>
             </div>
           </details>
           <details class="service-card">
@@ -224,6 +225,7 @@
                 <li>Standard driveway: $120–$220</li>
                 <li>Large/long driveway: $250–$400</li>
               </ul>
+              <p><a href="#services">View pressure washing pricing</a></p>
             </div>
           </details>
           <details class="service-card">
@@ -255,6 +257,7 @@
                 <li>Commercial floor: $0.45–$0.75 / sq. ft.</li>
                 <li>Residential floor: $85–$150</li>
               </ul>
+              <p><a href="#services">View kitchen hood pricing</a></p>
             </div>
           </details>
           <details class="service-card">
@@ -270,6 +273,7 @@
                 <li>Tile &amp; grout: $0.60–$1.00 / sq. ft.</li>
                 <li>Polishing/sealing: +$0.25–$0.45 / sq. ft.</li>
               </ul>
+              <p><a href="#services">View tile and grout pricing</a></p>
             </div>
           </details>
           <details class="service-card">
@@ -379,9 +383,11 @@
                 <li>Full home: $250–$450</li>
                 <li>Add odor treatment: +$45–$95</li>
               </ul>
+              <p><a href="#services">View move-out pricing</a></p>
             </div>
           </details>
         </div>
+        <p class="blog-article-cta"><a class="btn btn-primary" href="#services">Browse all services</a></p>
       </section>
 
       <section id="results" class="section">
@@ -729,34 +735,49 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Gem LLC",
-        "image": "https://gemcleaning.services/images/logo-1.png",
-        "description": "Carpet cleaning and pressure washing in Lacey, WA. Driveway cleaning, kitchen hood degreasing, tile and grout cleaning, area rug cleaning.",
-        "telephone": "+1-773-329-6506",
-        "email": "info@gemcleaning.services",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "8332 54Th Ct SE",
-          "addressLocality": "Lacey",
-          "addressRegion": "WA",
-          "postalCode": "98513",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 47.0343,
-          "longitude": -122.8232
-        },
-        "areaServed": "Lacey, WA",
-        "openingHours": "Mo-Sa 07:00-19:00",
-        "priceRange": "$$",
-        "url": "https://gemcleaning.services",
-        "sameAs": [
-          "https://www.facebook.com",
-          "https://www.instagram.com",
-          "https://www.linkedin.com",
-          "https://www.tiktok.com"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://gemcleaning.services/#website",
+            "url": "https://gemcleaning.services/",
+            "name": "Gem LLC",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://gemcleaning.services/#localbusiness"
+            }
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://gemcleaning.services/#localbusiness",
+            "name": "Gem LLC",
+            "image": "https://gemcleaning.services/images/logo-1.png",
+            "description": "Carpet cleaning and pressure washing in Lacey, WA. Driveway cleaning, kitchen hood degreasing, tile and grout cleaning, area rug cleaning.",
+            "telephone": "+1-773-329-6506",
+            "email": "info@gemcleaning.services",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "8332 54Th Ct SE",
+              "addressLocality": "Lacey",
+              "addressRegion": "WA",
+              "postalCode": "98513",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 47.0343,
+              "longitude": -122.8232
+            },
+            "areaServed": "Lacey, WA",
+            "openingHours": "Mo-Sa 07:00-19:00",
+            "priceRange": "$$",
+            "url": "https://gemcleaning.services",
+            "sameAs": [
+              "https://www.facebook.com",
+              "https://www.instagram.com",
+              "https://www.linkedin.com",
+              "https://www.tiktok.com"
+            ]
+          }
         ]
       }
     </script>
