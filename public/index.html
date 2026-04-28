@@ -94,18 +94,23 @@
             <label>
               Service type
               <select id="estimateService">
-                <option>Deep carpet &amp; upholstery cleaning</option>
-                <option>Driveway pressure washing</option>
-                <option>Sidewalk scrubbing &amp; cleaning</option>
-                <option>Kitchen hood &amp; floor degreasing</option>
-                <option>Tile scrubbing &amp; polishing</option>
-                <option>Area rug refreshing</option>
-                <option>Stain &amp; odor removal</option>
-                <option>Commercial cleaning</option>
-                <option>Allergen reduction</option>
-                <option>Protective treatments</option>
-                <option>Fast‑dry technology</option>
-                <option>Move‑out cleaning</option>
+                <option value="Deep carpet &amp; upholstery cleaning">
+                  Deep carpet &amp; upholstery cleaning
+                </option>
+                <option value="Driveway pressure washing">Driveway pressure washing</option>
+                <option value="Sidewalk scrubbing &amp; cleaning">Sidewalk scrubbing &amp; cleaning</option>
+                <option value="Graffiti removal">Graffiti removal services</option>
+                <option value="Kitchen hood &amp; floor degreasing">
+                  Kitchen hood &amp; floor degreasing
+                </option>
+                <option value="Tile scrubbing &amp; polishing">Tile scrubbing &amp; polishing</option>
+                <option value="Area rug refreshing">Area rug refreshing</option>
+                <option value="Stain &amp; odor removal">Stain &amp; odor removal</option>
+                <option value="Commercial cleaning">Commercial cleaning</option>
+                <option value="Allergen reduction">Allergen reduction</option>
+                <option value="Protective treatments">Protective treatments</option>
+                <option value="Fast‑dry technology">Fast‑dry technology</option>
+                <option value="Move‑out cleaning">Move‑out cleaning</option>
               </select>
             </label>
             <button class="btn btn-primary" type="button">Show Estimate</button>
@@ -169,7 +174,6 @@
                 <li>OSHA Level 30 Certified</li>
                 <li>IICRC Certified</li>
                 <li>Carpet Cleaning Technician (CCT)</li>
-                <li>Carpet Repair and Reinstallation (RRT)</li>
                 <li>Trauma and Crime Scene (TCST)</li>
                 <li>Upholstery Fabric Technician (UFT)</li>
                 <li>Odor Control Technician (OCT)</li>
@@ -190,7 +194,7 @@
       <section id="services" class="section">
         <div class="section-header">
           <h2>Carpet cleaning, pressure washing &amp; more in Lacey WA</h2>
-          <p>Driveway pressure washing, sidewalk cleaning services, tile and grout cleaning, area rug cleaning, and kitchen hood degreasing. Tap to see pricing and details.</p>
+          <p>Driveway pressure washing, sidewalk cleaning, graffiti removal, tile and grout cleaning, area rug cleaning, and kitchen hood degreasing. Tap to see pricing and details.</p>
         </div>
         <div class="grid three">
           <details class="service-card">
@@ -242,6 +246,23 @@
                 <li>Residential walkway: $45–$95</li>
                 <li>Full front sidewalk: $95–$150</li>
               </ul>
+            </div>
+          </details>
+          <details class="service-card">
+            <summary>
+              <div class="service-title">
+                <h3>Graffiti Removal</h3>
+                <span class="service-price">From $75</span>
+              </div>
+              <p class="service-summary">Graffiti removal for storefronts, fences, brick, and concrete — residential and commercial.</p>
+            </summary>
+            <div class="service-details">
+              <ul>
+                <li>Small tags / single panel: $75–$175</li>
+                <li>Medium wall / storefront section: $175–$450</li>
+                <li>Large sites or sensitive masonry: custom quote</li>
+              </ul>
+              <p><a href="#services">View graffiti removal pricing</a></p>
             </div>
           </details>
           <details class="service-card">
@@ -552,6 +573,7 @@
                 <option>Deep carpet &amp; upholstery cleaning</option>
                 <option>Driveway pressure washing</option>
                 <option>Sidewalk scrubbing &amp; cleaning</option>
+                <option>Graffiti removal</option>
                 <option>Kitchen hood &amp; floor degreasing</option>
                 <option>Tile scrubbing &amp; polishing</option>
                 <option>Area rug refreshing</option>
@@ -739,7 +761,7 @@
             "@id": "https://gemcleaning.services/#localbusiness",
             "name": "Gem LLC",
             "image": "https://gemcleaning.services/images/logo-1.png",
-            "description": "Carpet cleaning and pressure washing in Lacey, WA. Driveway cleaning, kitchen hood degreasing, tile and grout cleaning, area rug cleaning.",
+            "description": "Carpet cleaning and pressure washing in Lacey, WA. Driveway cleaning, graffiti removal, kitchen hood degreasing, tile and grout cleaning, area rug cleaning.",
             "telephone": "+1-773-329-6506",
             "email": "info@gemcleaning.services",
             "address": {
@@ -816,6 +838,16 @@
           {
             "@type": "Service",
             "serviceType": "Driveway Pressure Washing",
+            "areaServed": "Lacey, WA",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Gem LLC",
+              "url": "https://gemcleaning.services"
+            }
+          },
+          {
+            "@type": "Service",
+            "serviceType": "Graffiti Removal",
             "areaServed": "Lacey, WA",
             "provider": {
               "@type": "LocalBusiness",

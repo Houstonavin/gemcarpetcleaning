@@ -16,6 +16,8 @@ const servicePricing = {
     "Standard driveway: $120–$220. Large/long: $250–$400.",
   "Sidewalk scrubbing & cleaning":
     "Residential walkway: $45–$95. Full front: $95–$150.",
+  "Graffiti removal":
+    "Small tags/single panel: $75–$175. Medium wall/storefront: $175–$450. Large or sensitive masonry: custom quote.",
   "Kitchen hood & floor degreasing":
     "Hood degreasing: $150–$250. Commercial floor: $0.45–$0.75 / sq. ft. Residential floor: $85–$150.",
   "Tile scrubbing & polishing":
