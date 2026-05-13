@@ -427,3 +427,59 @@ reviewForm?.addEventListener("submit", async (event) => {
     window.alert("Network error — check your connection and try again.");
   }
 });
+
+/** Clean URLs (/services, /booking, …) load the same home page; scroll to the matching section. */
+(() => {
+  const LEGACY_HASH_TO_PATH = {
+    services: "/services",
+    process: "/how-it-works",
+    reviews: "/reviews",
+    faq: "/faq",
+    booking: "/booking",
+    "quick-estimate": "/quote",
+    top: "/",
+  };
+
+  const PATH_TO_SECTION_ID = {
+    "/services": "services",
+    "/how-it-works": "process",
+    "/reviews": "reviews",
+    "/faq": "faq",
+    "/booking": "booking",
+    "/quote": "quick-estimate",
+  };
+
+  const normalizePath = (pathname) => {
+    const p = (pathname || "/").replace(/\/+$/, "");
+    return p === "" ? "/" : p;
+  };
+
+  const scrollToSection = (id) => {
+    if (!id) return;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  };
+
+  const applyHomeCleanPaths = () => {
+    if (document.body?.dataset.page !== "home") return;
+
+    let path = normalizePath(window.location.pathname);
+    const hashKey = window.location.hash.replace(/^#/, "");
+
+    if (path === "/" && hashKey && LEGACY_HASH_TO_PATH[hashKey]) {
+      const next = LEGACY_HASH_TO_PATH[hashKey];
+      window.history.replaceState(null, "", next);
+      path = normalizePath(window.location.pathname);
+    }
+
+    const id = PATH_TO_SECTION_ID[path];
+    if (id) {
+      scrollToSection(id);
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", applyHomeCleanPaths);
+})();

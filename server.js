@@ -145,6 +145,12 @@ app.post("/api/reviews", async (req, res) => {
   }
 });
 
+/** Pretty URL for review submission (physical file stays `public/submit-review.html`). */
+const submitReviewFile = path.join(publicPath, "submit-review.html");
+app.get("/submit-review", (_req, res) => res.sendFile(submitReviewFile));
+app.get("/submit-review.html", (_req, res) => res.redirect(301, "/submit-review"));
+app.get("/submit-review/", (_req, res) => res.redirect(301, "/submit-review"));
+
 app.use(express.static(publicPath));
 
 /** Express 5 / path-to-regexp v8 rejects `app.get("*")` — SPA fallback via middleware */

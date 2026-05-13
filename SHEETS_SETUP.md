@@ -57,7 +57,7 @@ Nothing appears on the site until **Approved** is **yes** for that row. This red
 
 ## 7. Submit review page
 
-The dedicated form is at **`/submit-review.html`**. It reuses **`styles.css`** and **`app.js`** so it matches the main site theme. Submissions still go through **`POST /api/reviews`** to the same Google Sheet; approved rows appear on the home page in **What our clients say**.
+The dedicated form lives at **`/submit-review`** (clean URL; the deployed file remains `submit-review.html` on disk). It reuses **`styles.css`** and **`app.js`** so it matches the main site theme. Submissions still go through **`POST /api/reviews`** to the same Google Sheet; approved rows appear on the home page in **What our clients say**. Requests to **`/submit-review.html`** redirect to **`/submit-review`**.
 
 ---
 
