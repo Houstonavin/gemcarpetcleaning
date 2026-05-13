@@ -159,12 +159,6 @@ if (resultCards.length) {
   window.addEventListener("resize", setActiveDot);
 }
 
-/** @param {number} rating */
-const starLabel = (rating) => {
-  const r = Math.min(5, Math.max(1, Number(rating) || 1));
-  return `${"★".repeat(r)} (${r}/5)`;
-};
-
 /** Migrated “Trusted in Lacey…” quotes — starred for display beside sheet submissions */
 const FEATURED_LEGACY_REVIEWS = [
   {
@@ -209,9 +203,17 @@ const appendClientReviewCard = (trackEl, rev) => {
   const article = document.createElement("article");
   article.className = "review-card";
 
+  const r = Math.min(5, Math.max(1, Number(rev.rating) || 1));
+
   const meta = document.createElement("p");
   meta.className = "client-review-meta";
-  meta.textContent = `${starLabel(rev.rating)} · ${rev.service}`;
+
+  const stars = document.createElement("span");
+  stars.className = "review-stars";
+  stars.setAttribute("aria-hidden", "true");
+  stars.textContent = "★".repeat(r);
+
+  meta.append(stars, document.createTextNode(` (${r}/5) · ${rev.service}`));
 
   const body = document.createElement("p");
   const text =

@@ -1023,6 +1023,12 @@ textarea:focus-visible {
   color: var(--text) !important;
 }
 
+.client-review-meta .review-stars {
+  color: #e6ab00;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
 .client-reviews-status {
   text-align: center;
   margin: 16px 0 0;
