@@ -52,7 +52,7 @@
         <div class="nav-links">
           <a href="#services">Services</a>
           <a href="#process">How It Works</a>
-          <a href="#reviews">Reviews</a>
+          <a href="#reviews" title="Client testimonials and submit a review">Reviews</a>
           <a href="#faq">FAQ</a>
           <a href="/blog/">Blog</a>
         </div>
@@ -423,31 +423,38 @@
               <img src="images/after-1.jpeg" alt="Lacey WA carpet cleaning result in a living room" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-2.jpeg" alt="Upholstery cleaning result in Lacey WA home" />
+              <img src="images/after-2.jpeg" alt="Residential paver driveway pressure washing showing clean stripes in progress, Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-3.jpeg" alt="Lacey WA carpet cleaning result with stain removal" />
+              <img src="images/after-3.jpeg" alt="Residential sidewalk and curb cleaned along the street in Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-4.jpeg" alt="Lacey WA carpet cleaning before and after result" />
+              <img src="images/after-4.jpeg" alt="Stamped concrete driveway being pressure washed in Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-5.jpeg" alt="Deep carpet cleaning result in Lacey WA" />
+              <img src="images/after-5.jpeg" alt="Finished stamped concrete driveway curb appeal cleaning in Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-6.jpeg" alt="Rug cleaning result from Lacey WA service" />
+              <img src="images/after-6.jpeg" alt="Carpeted staircase and transitional carpet areas serviced in Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-7.jpeg" alt="Lacey WA upholstery cleaning refresh result" />
+              <img src="images/after-7.jpeg" alt="Bright living room carpet after extraction service in Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-8.jpeg" alt="Carpet cleaning result in a Lacey WA hallway" />
+              <img src="images/after-8.jpeg" alt="Clean exposed aggregate backyard patio concrete in Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-9.jpeg" alt="Residential carpet cleaning result in Lacey WA" />
+              <img src="images/after-9.jpeg" alt="Commercial polished tile and stone floor cleaning in Lacey WA" />
             </figure>
             <figure class="results-card">
-              <img src="images/after-10.jpeg" alt="Lacey WA carpet cleaning detail work result" />
+              <img src="images/after-10.jpeg" alt="Formal patterned wall-to-wall carpeting detail in Lacey WA" />
+            </figure>
+            <figure class="results-card">
+              <img
+                src="images/graffiti removal.jpg"
+                alt="Professional graffiti removal on a brick wall, Lacey WA"
+                loading="lazy"
+              />
             </figure>
           </div>
           <div class="results-dots" role="tablist" aria-label="Select a result"></div>
@@ -481,6 +488,12 @@
           <video class="video-card" controls preload="metadata" playsinline>
             <source src="videos/gem-cleaning-7.mp4" type="video/mp4" />
           </video>
+          <video class="video-card" controls preload="metadata" playsinline>
+            <source src="videos/gem-cleaning-8.mp4?v=20260513" type="video/mp4" />
+          </video>
+          <video class="video-card" controls preload="metadata" playsinline>
+            <source src="videos/gem-cleaning-9.mp4?v=20260513" type="video/mp4" />
+          </video>
         </div>
       </section>
 
@@ -508,37 +521,33 @@
         </div>
       </section>
 
-      <section id="reviews" class="section">
-        <div class="section-header">
-          <h2>Trusted in Lacey, WA by homeowners and businesses</h2>
-          <p>Rated 4.9/5 across Google, Yelp, and Angi.</p>
-        </div>
-        <div class="reviews-scroll" aria-label="Customer reviews">
-          <div class="reviews-track">
-            <article class="review-card">
-              <p>“Professional service and great results. Highly recommend.”</p>
-              <span>— Carolyne Muchelule</span>
-            </article>
-            <article class="review-card">
-              <p>“Victor removed every stain and the odor is gone. Our couch looks new.”</p>
-              <span>— Katrina</span>
-            </article>
-            <article class="review-card">
-              <p>“Office carpet looks clean and smells great. Highly recommended.”</p>
-              <span>— Maymun Mohamed</span>
-            </article>
-            <article class="review-card">
-              <p>“Very professional, affordable, and reliable.”</p>
-              <span>— Grace Ann</span>
-            </article>
-            <article class="review-card">
-              <p>
-                “Arrived early, worked six hours straight, and delivered excellent results.”
-              </p>
-              <span>— Cary Priamos</span>
-            </article>
+      <section id="reviews" class="section reviews-hub">
+        <div id="what-clients-say" class="client-reviews-section">
+          <div class="section-header">
+            <h2>What our clients say</h2>
+            <p>
+              Highlighted feedback from Lacey-area homeowners and businesses — plus approvals from
+              recent visits.
+            </p>
           </div>
-          <div class="reviews-dots" role="tablist" aria-label="Select a review"></div>
+          <div class="reviews-scroll" aria-label="Client reviews">
+            <div class="reviews-track" id="clientReviewsTrack"></div>
+            <div
+              id="clientReviewsDots"
+              class="reviews-dots"
+              role="tablist"
+              aria-label="Select a review"
+            ></div>
+          </div>
+          <p id="clientReviewsStatus" class="client-reviews-status" aria-live="polite"></p>
+        </div>
+        <div class="reviews-callout" role="region" aria-label="Invite to submit a review">
+          <div class="reviews-callout-inner">
+            <p class="reviews-callout-text">
+              Had a recent visit with us? Add a rating and a few words on our submission page
+            </p>
+            <a class="btn btn-ghost reviews-callout-btn" href="/submit-review.html">Submit a review</a>
+          </div>
         </div>
       </section>
 

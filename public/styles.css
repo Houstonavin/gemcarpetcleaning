@@ -328,6 +328,33 @@ textarea:focus-visible {
   margin-bottom: 12px;
 }
 
+.section-header h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 12px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.submit-review-page .submit-review-hero.section {
+  padding-bottom: 20px;
+}
+
+.submit-review-page .review-submit.submit-review-form-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .section-header p {
   max-width: 680px;
   margin: 0 auto;
@@ -848,11 +875,11 @@ textarea:focus-visible {
 .review-card {
   scroll-snap-align: start;
   border-radius: 16px;
-  background: var(--surface);
+  background: transparent;
   border: 1px solid var(--border);
   padding: 22px;
   min-width: 260px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  box-shadow: none;
   color: var(--muted);
   font-style: italic;
 }
@@ -885,6 +912,150 @@ textarea:focus-visible {
 .reviews-dot.is-active {
   background: var(--accent);
   animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+.review-submit {
+  margin-top: 44px;
+  display: flex;
+  justify-content: center;
+}
+
+.review-submit-card {
+  width: min(560px, 100%);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 28px 32px;
+  box-shadow: none;
+}
+
+.review-submit-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.35rem;
+  margin: 0 0 12px;
+  color: var(--text);
+}
+
+.review-submit-lead {
+  color: var(--muted);
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.review-share-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.review-share-link:hover {
+  text-decoration: underline;
+}
+
+.client-reviews-section {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.reviews-hub {
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.reviews-callout {
+  max-width: 760px;
+  margin: 44px auto 0;
+}
+
+.reviews-callout-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 22px 26px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.reviews-callout-text {
+  margin: 0;
+  flex: 1 1 260px;
+  text-align: center;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 480px;
+}
+
+.reviews-callout-btn {
+  flex-shrink: 0;
+}
+
+@media (min-width: 720px) {
+  .reviews-callout-inner {
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .reviews-callout-text {
+    text-align: left;
+  }
+}
+
+.reviews-hub .review-submit {
+  margin-top: 24px;
+}
+
+.client-review-meta {
+  margin: 0 0 8px !important;
+  font-style: normal !important;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text) !important;
+}
+
+.client-reviews-status {
+  text-align: center;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  min-height: 1.3em;
+}
+
+.review-form {
+  display: grid;
+  gap: 16px;
+}
+
+.optional-hint {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+textarea {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font: inherit;
+  background: #fff;
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+}
+
+textarea.required-field.invalid {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
 }
 
 @keyframes dotPulse {
@@ -1382,19 +1553,18 @@ textarea:focus-visible {
 }
 
 .blog-featured-image {
-  margin: 20px 0 28px;
+  margin: 24px 0 32px;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
 .blog-featured-image img {
   width: 100%;
   height: auto;
-  max-height: min(420px, 55vh);
-  object-fit: cover;
+  max-height: min(820px, 90vh);
   display: block;
+  margin-inline: 0;
+  border-radius: var(--radius);
   vertical-align: middle;
 }
 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Submit a review | Gem LLC — Lacey, WA</title>
+    <meta
+      name="description"
+      content="Share feedback on your Gem LLC cleaning in Lacey, WA. Star rating and comments may appear on our site after approval."
+    />
+    <meta property="og:title" content="Submit a review | Gem LLC" />
+    <meta
+      property="og:description"
+      content="Tell us about your Gem LLC service in Lacey, WA."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gemcleaning.services/submit-review.html" />
+    <meta property="og:image" content="https://gemcleaning.services/images/logo-1.png" />
+    <link rel="canonical" href="https://gemcleaning.services/submit-review.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="images/logo-1.png" type="image/png" sizes="128x128" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S4LXPGPKC7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-S4LXPGPKC7");
+    </script>
+  </head>
+  <body class="submit-review-page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="/">
+          <img class="logo-img" src="images/logo-1.png" alt="Gem LLC logo" />
+          <span>Gem LLC</span>
+        </a>
+        <div class="nav-links">
+          <a href="/#services">Services</a>
+          <a href="/#process">How It Works</a>
+          <a href="/#reviews" title="Client testimonials">Reviews</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="tel:+17733296506">Call +1 (773) 329‑6506</a>
+          <a class="btn btn-primary" href="/#booking">Book Now</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top" class="submit-review-main">
+      <section class="section submit-review-hero">
+        <div class="section-header">
+          <h1>Submit your review</h1>
+          <p>
+            We appreciate your time. Approved feedback appears on our
+            <a href="/#reviews">home page</a> under <strong>What our clients say</strong>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section review-submit submit-review-form-section" aria-labelledby="submit-review-heading">
+        <h2 id="submit-review-heading" class="visually-hidden">Review form</h2>
+        <div class="review-submit-card">
+          <form class="review-form">
+            <label>
+              Rating
+              <select id="reviewRating" name="rating" required class="required-field">
+                <option value="" selected disabled>Choose stars</option>
+                <option value="5">5 — Excellent</option>
+                <option value="4">4 — Very good</option>
+                <option value="3">3 — Good</option>
+                <option value="2">2 — Could improve</option>
+                <option value="1">1 — Not satisfied</option>
+              </select>
+              <span class="field-message">Please choose a rating.</span>
+            </label>
+            <label>
+              Service you received
+              <select id="reviewService" name="service" required class="required-field">
+                <option value="" selected disabled>Select a service</option>
+                <option>Deep carpet &amp; upholstery cleaning</option>
+                <option>Driveway pressure washing</option>
+                <option>Sidewalk scrubbing &amp; cleaning</option>
+                <option>Graffiti removal</option>
+                <option>Kitchen hood &amp; floor degreasing</option>
+                <option>Tile scrubbing &amp; polishing</option>
+                <option>Area rug refreshing</option>
+                <option>Stain &amp; odor removal</option>
+                <option>Commercial cleaning</option>
+                <option>Allergen reduction</option>
+                <option>Protective treatments</option>
+                <option>Fast‑dry technology</option>
+                <option>Move‑out cleaning</option>
+                <option>Other</option>
+              </select>
+              <span class="field-message">This is a mandatory field.</span>
+            </label>
+            <label>
+              Name <span class="optional-hint">(optional)</span>
+              <input
+                id="reviewName"
+                name="customerName"
+                type="text"
+                placeholder="How you’d like to be addressed"
+                autocomplete="name"
+                maxlength="120"
+              />
+            </label>
+            <label>
+              Your review <span class="optional-hint">(optional)</span>
+              <textarea
+                id="reviewComment"
+                name="comments"
+                rows="4"
+                maxlength="1200"
+                placeholder="Share what stood out — quality, timeliness, team, anything helpful."
+              ></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Submit review</button>
+            <p class="fine-print">
+              Thank you — we read every submission. Approved reviews appear on our home page for
+              everyone to see.
+            </p>
+            <p class="fine-print">
+              <a class="review-share-link" href="/#reviews">← Back to reviews on the home page</a>
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <h3>Gem LLC</h3>
+          <p>Carpet Cleaning • Upholstery • Rug Care</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>
+            Phone:
+            <a href="tel:+17733296506" aria-label="Call Gem LLC at +1 773 329 6506">
+              +1 (773) 329‑6506
+            </a>
+          </p>
+          <p>
+            Email:
+            <a href="mailto:info@gemcleaning.services" aria-label="Email Gem LLC">info@gemcleaning.services</a>
+          </p>
+          <p>Address: 8332 54Th Ct SE, Lacey, WA 98513</p>
+        </div>
+        <div>
+          <h4>Service Area</h4>
+          <p>Lacey, WA</p>
+        </div>
+        <div>
+          <h4>Social</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook</a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-note">© 2026 Gem LLC. Licensed • Bonded • Insured. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

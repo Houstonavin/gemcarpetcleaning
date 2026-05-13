@@ -92,9 +92,6 @@ bookingForm?.addEventListener("submit", (event) => {
 const resultsTrack = document.querySelector(".results-track");
 const resultsDots = document.querySelector(".results-dots");
 const resultCards = resultsTrack?.querySelectorAll(".results-card") || [];
-const reviewsTrack = document.querySelector(".reviews-track");
-const reviewsDots = document.querySelector(".reviews-dots");
-const reviewCards = reviewsTrack?.querySelectorAll(".review-card") || [];
 
 const requiredFields = document.querySelectorAll(".required-field");
 
@@ -162,45 +159,269 @@ if (resultCards.length) {
   window.addEventListener("resize", setActiveDot);
 }
 
-const buildReviewDots = () => {
-  if (!reviewsDots || !reviewCards.length) return;
-  reviewsDots.innerHTML = "";
-  reviewCards.forEach((_card, index) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "reviews-dot";
-    dot.setAttribute("aria-label", `Show review ${index + 1}`);
-    dot.addEventListener("click", () => {
-      reviewCards[index].scrollIntoView({ behavior: "smooth", inline: "start" });
+/** @param {number} rating */
+const starLabel = (rating) => {
+  const r = Math.min(5, Math.max(1, Number(rating) || 1));
+  return `${"★".repeat(r)} (${r}/5)`;
+};
+
+/** Migrated “Trusted in Lacey…” quotes — starred for display beside sheet submissions */
+const FEATURED_LEGACY_REVIEWS = [
+  {
+    rating: 5,
+    service: "Residential cleaning · Lacey, WA",
+    comments: "Professional service and great results. Highly recommend.",
+    name: "Carolyne Muchelule",
+  },
+  {
+    rating: 5,
+    service: "Deep carpet & upholstery cleaning",
+    comments:
+      "Victor removed every stain and the odor is gone. Our couch looks new.",
+    name: "Katrina",
+  },
+  {
+    rating: 5,
+    service: "Commercial carpet cleaning",
+    comments: "Office carpet looks clean and smells great. Highly recommended.",
+    name: "Maymun Mohamed",
+  },
+  {
+    rating: 5,
+    service: "Residential cleaning · Lacey, WA",
+    comments: "Very professional, affordable, and reliable.",
+    name: "Grace Ann",
+  },
+  {
+    rating: 5,
+    service: "Full-day deep cleaning",
+    comments:
+      "Arrived early, worked six hours straight, and delivered excellent results.",
+    name: "Cary Priamos",
+  },
+];
+
+/**
+ * @param {HTMLElement} trackEl
+ * @param {{ rating: number; service: string; comments: string; name: string }} rev
+ */
+const appendClientReviewCard = (trackEl, rev) => {
+  const article = document.createElement("article");
+  article.className = "review-card";
+
+  const meta = document.createElement("p");
+  meta.className = "client-review-meta";
+  meta.textContent = `${starLabel(rev.rating)} · ${rev.service}`;
+
+  const body = document.createElement("p");
+  const text =
+    typeof rev.comments === "string" && rev.comments.trim()
+      ? rev.comments.trim()
+      : "Thank you for the great work.";
+  body.textContent = `\u201c${text}\u201d`;
+
+  const by = document.createElement("span");
+  by.textContent = `— ${rev.name.trim()}`;
+
+  article.append(meta, body, by);
+  trackEl.appendChild(article);
+};
+
+/**
+ * @param {HTMLElement} trackEl
+ * @param {HTMLElement} dotsEl
+ * @returns {() => void}
+ */
+const attachReviewDotsDisposable = (trackEl, dotsEl) => {
+  if (!trackEl || !dotsEl) return () => {};
+
+  const setActiveDot = () => {
+    const currentCards = trackEl.querySelectorAll(".review-card");
+    if (!currentCards.length) return;
+    const trackRect = trackEl.getBoundingClientRect();
+    let activeIndex = 0;
+    let closestDistance = Number.POSITIVE_INFINITY;
+    currentCards.forEach((card, index) => {
+      const cardRect = card.getBoundingClientRect();
+      const distance = Math.abs(cardRect.left - trackRect.left);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        activeIndex = index;
+      }
     });
-    reviewsDots.appendChild(dot);
-  });
+    dotsEl.querySelectorAll(".reviews-dot").forEach((dot, index) => {
+      dot.classList.toggle("is-active", index === activeIndex);
+    });
+  };
+
+  const rebuildDots = () => {
+    dotsEl.innerHTML = "";
+    trackEl.querySelectorAll(".review-card").forEach((card, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "reviews-dot";
+      dot.setAttribute("aria-label", `Show review ${index + 1}`);
+      dot.addEventListener("click", () => {
+        card.scrollIntoView({ behavior: "smooth", inline: "start" });
+      });
+      dotsEl.appendChild(dot);
+    });
+  };
+
+  const onScroll = () => window.requestAnimationFrame(setActiveDot);
+  const onResize = () => setActiveDot();
+
+  rebuildDots();
+  setActiveDot();
+  trackEl.addEventListener("scroll", onScroll);
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    trackEl.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onResize);
+  };
 };
 
-const setActiveReviewDot = () => {
-  if (!reviewsDots || !reviewsTrack || !reviewCards.length) return;
-  const trackRect = reviewsTrack.getBoundingClientRect();
-  let activeIndex = 0;
-  let closestDistance = Number.POSITIVE_INFINITY;
-  reviewCards.forEach((card, index) => {
-    const cardRect = card.getBoundingClientRect();
-    const distance = Math.abs(cardRect.left - trackRect.left);
-    if (distance < closestDistance) {
-      closestDistance = distance;
-      activeIndex = index;
+const reviewForm = document.querySelector(".review-form");
+const clientReviewsTrack = document.getElementById("clientReviewsTrack");
+const clientReviewsDots = document.getElementById("clientReviewsDots");
+const clientReviewsStatus = document.getElementById("clientReviewsStatus");
+
+let disposeClientReviewStrip = () => {};
+
+const finishClientReviewStrip = () => {
+  if (!clientReviewsTrack || !clientReviewsDots) return;
+  disposeClientReviewStrip();
+  disposeClientReviewStrip = () => {};
+  const n = clientReviewsTrack.querySelectorAll(".review-card").length;
+  if (n <= 1) {
+    clientReviewsDots.innerHTML = "";
+    clientReviewsDots.hidden = true;
+    return;
+  }
+  clientReviewsDots.hidden = false;
+  disposeClientReviewStrip = attachReviewDotsDisposable(
+    clientReviewsTrack,
+    clientReviewsDots,
+  );
+};
+
+const renderSubmittedReviewsToStrip = async () => {
+  disposeClientReviewStrip();
+  disposeClientReviewStrip = () => {};
+
+  if (!clientReviewsTrack || !clientReviewsDots || !clientReviewsStatus) return;
+
+  clientReviewsTrack.innerHTML = "";
+  clientReviewsDots.innerHTML = "";
+  clientReviewsDots.hidden = true;
+  clientReviewsStatus.textContent = "";
+
+  FEATURED_LEGACY_REVIEWS.forEach((rev) =>
+    appendClientReviewCard(clientReviewsTrack, rev),
+  );
+
+  try {
+    const res = await fetch("/api/reviews", { credentials: "same-origin" });
+    const data = await res.json();
+
+    if (data.configured === false && data.ok !== false) {
+      finishClientReviewStrip();
+      return;
     }
-  });
-  reviewsDots.querySelectorAll(".reviews-dot").forEach((dot, index) => {
-    dot.classList.toggle("is-active", index === activeIndex);
-  });
+
+    if (!data.ok || !Array.isArray(data.reviews)) {
+      clientReviewsStatus.textContent =
+        data.error ||
+        "Could not load submitted reviews — try refreshing in a minute.";
+      finishClientReviewStrip();
+      return;
+    }
+
+    const list = /** @type {Array<{rating:number,name?:string,service?:string,comments?:string}>} */ (
+      data.reviews
+    );
+
+    for (const rev of list) {
+      appendClientReviewCard(clientReviewsTrack, {
+        rating: rev.rating,
+        service: (rev.service && String(rev.service).trim()) || "Service noted at booking",
+        comments: (rev.comments && String(rev.comments).trim()) || "",
+        name: (rev.name && String(rev.name).trim()) || "Happy customer",
+      });
+    }
+
+    if (data.configured === true && list.length === 0) {
+      clientReviewsStatus.textContent =
+        "Submit your visit below — new reviews appear here after approval.";
+    }
+
+    finishClientReviewStrip();
+  } catch (_err) {
+    clientReviewsStatus.textContent =
+      "Could not load reviews. Use “npm start” locally or deploy the Node server.";
+    finishClientReviewStrip();
+  }
 };
 
-if (reviewCards.length) {
-  buildReviewDots();
-  setActiveReviewDot();
-  reviewsTrack?.addEventListener("scroll", () => {
-    window.requestAnimationFrame(setActiveReviewDot);
-  });
-  window.addEventListener("resize", setActiveReviewDot);
-}
+void renderSubmittedReviewsToStrip();
 
+reviewForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!reviewForm.checkValidity()) {
+    reviewForm.reportValidity();
+    return;
+  }
+
+  const submitButton = reviewForm.querySelector('button[type="submit"]');
+  const ratingRaw = reviewForm.querySelector("#reviewRating")?.value;
+  const rating = Number.parseInt(ratingRaw, 10);
+  const service = reviewForm.querySelector("#reviewService")?.value?.trim();
+  const customerName = reviewForm.querySelector("#reviewName")?.value?.trim();
+  const comments = reviewForm.querySelector("#reviewComment")?.value?.trim();
+
+  if (!submitButton) return;
+
+  const origLabel = submitButton.textContent;
+  submitButton.textContent = "Sending…";
+  submitButton.disabled = true;
+
+  try {
+    const res = await fetch("/api/reviews", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "same-origin",
+      body: JSON.stringify({
+        rating,
+        service,
+        name: customerName || "",
+        comments: comments || "",
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok || !data.ok) {
+      submitButton.textContent = origLabel || "Submit review";
+      submitButton.disabled = false;
+      const msg =
+        data.error ||
+        "Could not save your review. Try again or call us if this keeps happening.";
+      window.alert(msg);
+      return;
+    }
+
+    reviewForm.reset();
+    submitButton.textContent = origLabel || "Submit review";
+    submitButton.disabled = false;
+    window.alert(
+      "Thanks — we received your review. After it is approved, it will appear on the home page under “What our clients say.”"
+    );
+    if (document.getElementById("clientReviewsTrack")) {
+      await renderSubmittedReviewsToStrip();
+    }
+  } catch (_err) {
+    submitButton.textContent = origLabel || "Submit review";
+    submitButton.disabled = false;
+    window.alert("Network error — check your connection and try again.");
+  }
+});
