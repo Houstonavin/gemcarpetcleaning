@@ -82,7 +82,7 @@ bookingForm?.addEventListener("submit", (event) => {
   ];
 
   const message = encodeURIComponent(messageLines.join("\n"));
-  const whatsappUrl = `https://wa.me/17733296506?text=${message}`;
+  const whatsappUrl = `https://wa.me/12532670874?text=${message}`;
 
   submitButton.textContent = "Opening WhatsApp...";
   submitButton.disabled = true;
